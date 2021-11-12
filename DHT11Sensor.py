@@ -11,8 +11,10 @@ GPIO_PIN = 4
 
 # writing to a file to let the pi run for a few hours and get temp of my room to have realistic data for UDP project
 def write_to_file(humidity, temperature):
+    time_stamp = datetime.datetime.now()
     temp_readings_file = open("readings.txt", "a")
-    temp_readings_file.write('\nTemp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
+    temp_readings_file.write('\nTemp={0:0.1f}*C  Humidity={1:0.1f}% '.format(temperature, humidity))
+    temp_readings_file.write(time_stamp.strftime("%Y-%m-%d %H:%M:%S"))
     temp_readings_file.close()
 
 
