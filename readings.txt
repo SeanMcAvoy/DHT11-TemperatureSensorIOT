@@ -1,2 +1,1 @@
 This file is take in readings so The pi can run for a few hours so i have realistic data to use for UDP
-
