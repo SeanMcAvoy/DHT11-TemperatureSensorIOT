@@ -24,15 +24,13 @@ def main():
         humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-            if minute >= 3:
+            if minute >= 30: # Only for collecting data for UDP
                 minute = 0
                 write_to_file(humidity, temperature)
-                print("written")
         else:
             print('Failed - Wiring lose')
-        time.sleep(3)  # reading every minute
+        time.sleep(60)  # reading every minute
         minute += 1
-        print(minute)
 
 
 if __name__ == "__main__":
