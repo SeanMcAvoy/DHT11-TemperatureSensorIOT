@@ -18,9 +18,19 @@ def write_to_file(humidity, temperature):
     temp_readings_file.close()
 
 
+# returns both humidity, temperature
+def get_data_reading():
+    humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
+    if humidity is not None and temperature is not None:
+        return humidity, temperature
+    else:
+        return 0, 0
+
+
 def main():
     minute = 0  # not needed for project just for testing to .txt file
     while True:
+        # humidity, temperature = get_data_reading()
         humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
