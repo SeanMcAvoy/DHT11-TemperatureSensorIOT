@@ -7,6 +7,9 @@ DHT_SENSOR = Adafruit_DHT.DHT11
 # GPIO pin DHT11 output is going too
 GPIO_PIN = 4
 
+# writing to a file to let the pi run for a few hours and get temp of my room to have realistic data for UDP project
+def write_to_file():
+
 
 def main():
     while True:
@@ -14,7 +17,7 @@ def main():
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
         else:
-            print('Failed - Recheck code')
+            print('Failed - Recheck wiring')
         time.sleep(3)
 
 
