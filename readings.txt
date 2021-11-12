@@ -1,2 +1,10 @@
 This file is take in readings so The pi can run for a few hours so i have realistic data to use for UDP
 ===Bedroom 1====
+Temp=21.0*C  Humidity=64.0% TimeStamp: 2021-11-12 19:23:18
+Temp=21.0*C  Humidity=65.0% TimeStamp: 2021-11-12 19:53:36
+Temp=20.0*C  Humidity=64.0% TimeStamp: 2021-11-12 20:23:53
+Temp=21.0*C  Humidity=65.0% TimeStamp: 2021-11-12 20:54:10
+Temp=21.0*C  Humidity=65.0% TimeStamp: 2021-11-12 21:24:28
+Temp=20.0*C  Humidity=65.0% TimeStamp: 2021-11-12 21:54:45
+Temp=20.0*C  Humidity=66.0% TimeStamp: 2021-11-12 22:25:03
+Temp=20.0*C  Humidity=65.0% TimeStamp: 2021-11-12 22:55:20
