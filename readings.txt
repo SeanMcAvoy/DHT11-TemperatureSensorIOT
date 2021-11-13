@@ -10,3 +10,17 @@ Temp=20.0*C  Humidity=66.0% TimeStamp: 2021-11-12 22:25:03
 Temp=20.0*C  Humidity=65.0% TimeStamp: 2021-11-12 22:55:20
 
 ====Kitchen======
+Temp=20.0*C  Humidity=61.0% TimeStamp: 2021-11-13 09:38:27
+Temp=20.0*C  Humidity=57.0% TimeStamp: 2021-11-13 09:58:39
+Temp=20.0*C  Humidity=56.0% TimeStamp: 2021-11-13 10:19:51
+Temp=21.0*C  Humidity=58.0% TimeStamp: 2021-11-13 10:41:03
+Temp=21.0*C  Humidity=58.0% TimeStamp: 2021-11-13 11:01:15
+Temp=21.0*C  Humidity=60.0% TimeStamp: 2021-11-13 11:21:27
+Temp=21.0*C  Humidity=60.0% TimeStamp: 2021-11-13 11:42:39
+Temp=21.0*C  Humidity=60.0% TimeStamp: 2021-11-13 12:02:50
+Temp=21.0*C  Humidity=59.0% TimeStamp: 2021-11-13 12:23:02
+Temp=21.0*C  Humidity=58.0% TimeStamp: 2021-11-13 12:43:14
+Temp=21.0*C  Humidity=60.0% TimeStamp: 2021-11-13 13:04:26
+Temp=21.0*C  Humidity=63.0% TimeStamp: 2021-11-13 13:24:37
+Temp=21.0*C  Humidity=59.0% TimeStamp: 2021-11-13 13:44:49
+Temp=21.0*C  Humidity=60.0% TimeStamp: 2021-11-13 14:06:01
