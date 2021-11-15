@@ -48,7 +48,7 @@ def main():
         humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-            publish(my_channel, {"temperature ": temperature})
+            publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
         else:
             print('Failed Reading - Trying Again')
             publish(my_channel, {"Failed ": "Trying Again"})
