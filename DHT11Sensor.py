@@ -51,7 +51,7 @@ def main():
             publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
         else:
             print('Failed Reading - Trying Again')
-            publish(my_channel, {"Failed ": "Trying Again"})
+            publish(my_channel, {"Failed Reading": "Trying Again"})
         time.sleep(5)
 
 
