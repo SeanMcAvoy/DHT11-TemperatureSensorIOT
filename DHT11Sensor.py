@@ -36,10 +36,10 @@ def main():
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
             if minute >= 20:  # Only for collecting data for UDP
                 minute = 0
-                write_to_file(humidity, temperature)
+                # write_to_file(humidity, temperature)
         else:
             print('Failed Reading - Trying Again')
-        time.sleep(60)  # reading every minute
+        time.sleep(5)  
         minute += 1
 
 
