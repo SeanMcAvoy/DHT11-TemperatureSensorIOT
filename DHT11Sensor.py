@@ -122,6 +122,7 @@ def my_publish_callback(envelope, status):
 if __name__ == "__main__":
     main()
     pubnub.subscribe().channels(my_channel).execute()
+    print("test")
 
 # Help Ref:
 # https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/
