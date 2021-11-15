@@ -38,7 +38,7 @@ def main():
                 minute = 0
                 write_to_file(humidity, temperature)
         else:
-            print('Failed - Wiring lose')
+            print('Failed Reading - Trying Again')
         time.sleep(60)  # reading every minute
         minute += 1
 
