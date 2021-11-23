@@ -22,6 +22,7 @@ pubnub = PubNub(pnconfig)
 
 heating_status = False  # heating is off by default
 
+
 # returns both humidity, temperature
 def get_data_reading():
     humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
@@ -38,18 +39,13 @@ def main():
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
             # publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
-            if temperature < 25:
-                led.on()
-                # todo put into a method and also check that tempature is set at what, and is turned on
-            else:
-                led.off()
+            heating(25, temperature)
         else:
             print('Failed Reading - Trying Again')
             # publish(my_channel, {"Failed Reading": "Trying Again"})
         time.sleep(5)
 
 
-# todo code when heating's on and when off
 def heating(temperature_set, current_temperature):
     if heating_status and current_temperature < temperature_set:
         led.on()
