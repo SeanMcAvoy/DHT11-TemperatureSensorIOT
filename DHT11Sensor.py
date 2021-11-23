@@ -38,13 +38,19 @@ def main():
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
             # publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
+            if temperature < 25:
+                led.on()
+                # todo put into a method and also check that tempature is set at what, and is turned on
+            else:
+                led.off()
         else:
             print('Failed Reading - Trying Again')
             # publish(my_channel, {"Failed Reading": "Trying Again"})
-        led.on()
-        time.sleep(5)
-        led.off()
-        time.sleep(3)
+
+
+def heating(heating_status):
+    # todo code when heating's on and when off
+    return 0
 
 
 def publish(channel, msg):
