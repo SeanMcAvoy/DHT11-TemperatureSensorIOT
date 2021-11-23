@@ -1,5 +1,6 @@
 # imports Adafruit_DHT libary
 import Adafruit_DHT
+from gpiozero import LED
 import time
 import datetime
 import os
@@ -8,10 +9,10 @@ from pubnub.enums import PNStatusCategory, PNOperationType
 from pubnub.pnconfiguration import PNConfiguration
 from pubnub.pubnub import PubNub
 
-# sensor type
-DHT_SENSOR = Adafruit_DHT.DHT11
-# GPIO pin DHT11 output is going too
-GPIO_PIN = 4
+
+DHT_SENSOR = Adafruit_DHT.DHT11  # sensor type
+GPIO_PIN = 4  # GPIO pin DHT11 output is going too
+led = LED(21)  # GPIO pin feeding power to led
 
 my_channel = "seans-pi-channel"
 pnconfig = PNConfiguration()
@@ -36,11 +37,14 @@ def main():
         humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-            publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
+            # publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
         else:
             print('Failed Reading - Trying Again')
-            publish(my_channel, {"Failed Reading": "Trying Again"})
+            # publish(my_channel, {"Failed Reading": "Trying Again"})
+        led.on()
         time.sleep(5)
+        led.off()
+        time.sleep(3)
 
 
 def publish(channel, msg):
