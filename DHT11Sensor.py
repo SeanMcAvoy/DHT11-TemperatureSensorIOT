@@ -20,6 +20,7 @@ pnconfig.publish_key = os.getenv("PUBNUB_PUBLISH")
 pnconfig.uuid = '2ca147c6-d6e1-4d2c-9c38-a34d6938efd6'
 pubnub = PubNub(pnconfig)
 
+heating_status = False  # heating is off by default
 
 # returns both humidity, temperature
 def get_data_reading():
@@ -49,10 +50,11 @@ def main():
 
 
 # todo code when heating's on and when off
-def heating(heating_status, temperature_set, current_temperature):
-    if heating_status:
-        if current_temperature < temperature_set:
-            led.on()
+def heating(temperature_set, current_temperature):
+    if heating_status and current_temperature < temperature_set:
+        led.on()
+    else:
+        led.off()
 
 
 def publish(channel, msg):
