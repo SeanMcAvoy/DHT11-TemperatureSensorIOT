@@ -9,7 +9,6 @@ from pubnub.enums import PNStatusCategory, PNOperationType
 from pubnub.pnconfiguration import PNConfiguration
 from pubnub.pubnub import PubNub
 
-
 DHT_SENSOR = Adafruit_DHT.DHT11  # sensor type
 GPIO_PIN = 4  # GPIO pin DHT11 output is going too
 led = LED(21)  # GPIO pin feeding power to led
@@ -46,11 +45,14 @@ def main():
         else:
             print('Failed Reading - Trying Again')
             # publish(my_channel, {"Failed Reading": "Trying Again"})
+        time.sleep(5)
 
 
-def heating(heating_status):
-    # todo code when heating's on and when off
-    return 0
+# todo code when heating's on and when off
+def heating(heating_status, temperature_set, current_temperature):
+    if heating_status:
+        if current_temperature < temperature_set:
+            led.on()
 
 
 def publish(channel, msg):
