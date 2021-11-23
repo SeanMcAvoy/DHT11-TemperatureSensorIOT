@@ -12,5 +12,5 @@ sudo pip3 install Adafruit_DHT
 | 3         | n/a           |    n/a   |
 | 4         | ground        |    6     |
 
-## Pubnub Connection 
-pip install 'pubnub>=5.4.0'
+## Pubnub Connection - On the file
+`pip install 'pubnub>=5.4.0'`

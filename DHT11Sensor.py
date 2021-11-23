@@ -24,15 +24,6 @@ pnconfig.uuid = '2ca147c6-d6e1-4d2c-9c38-a34d6938efd6'
 pubnub = PubNub(pnconfig)
 
 
-# writing to a file to let the pi run for a few hours and get temp of my room to have realistic data for UDP project
-def write_to_file(humidity, temperature):
-    time_stamp = datetime.datetime.now()
-    temp_readings_file = open("readings.txt", "a")
-    temp_readings_file.write('\nTemp={0:0.1f}*C  Humidity={1:0.1f}% TimeStamp: '.format(temperature, humidity))
-    temp_readings_file.write(time_stamp.strftime("%Y-%m-%d %H:%M:%S"))
-    temp_readings_file.close()
-
-
 # returns both humidity, temperature
 def get_data_reading():
     humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
@@ -94,6 +85,7 @@ class MySubscribeCallback(SubscribeCallback):
             print(e)
             pass
 
+    # === Will be if tempature over certain tempt turn led off or turn led on
     # def handleEvent(self, msg):
     #     global data
     #     eventData = msg["event"]
@@ -122,7 +114,6 @@ def my_publish_callback(envelope, status):
 if __name__ == "__main__":
     main()
     pubnub.subscribe().channels(my_channel).execute()
-    print("test")
 
 # Help Ref:
 # https://www.thegeekpub.com/236867/using-the-dht11-temperature-sensor-with-the-raspberry-pi/
