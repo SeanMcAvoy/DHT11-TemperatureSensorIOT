@@ -3,21 +3,18 @@ import Adafruit_DHT
 import time
 import datetime
 import os
+from pubnub.callbacks import SubscribeCallback
+from pubnub.enums import PNStatusCategory, PNOperationType
+from pubnub.pnconfiguration import PNConfiguration
+from pubnub.pubnub import PubNub
 
 # sensor type
 DHT_SENSOR = Adafruit_DHT.DHT11
 # GPIO pin DHT11 output is going too
 GPIO_PIN = 4
 
-from pubnub.callbacks import SubscribeCallback
-from pubnub.enums import PNStatusCategory, PNOperationType
-from pubnub.pnconfiguration import PNConfiguration
-from pubnub.pubnub import PubNub
-
 my_channel = "seans-pi-channel"
-
 pnconfig = PNConfiguration()
-
 pnconfig.subscribe_key = os.getenv("PUBNUB_SUBSCRIBE")
 pnconfig.publish_key = os.getenv("PUBNUB_PUBLISH")
 pnconfig.uuid = '2ca147c6-d6e1-4d2c-9c38-a34d6938efd6'
