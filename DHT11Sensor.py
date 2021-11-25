@@ -15,13 +15,15 @@ led = LED(21)  # GPIO pin feeding power to led
 
 my_channel = "seans-pi-channel"
 pnconfig = PNConfiguration()
-pnconfig.subscribe_key = os.getenv("PUBNUB_SUBSCRIBE")
-pnconfig.publish_key = os.getenv("PUBNUB_PUBLISH")
+# pnconfig.subscribe_key = os.getenv("PUBNUB_SUBSCRIBE")
+# pnconfig.publish_key = os.getenv("PUBNUB_PUBLISH")
+pnconfig.subscribe_key = 'sub-c-7cefa8b0-3bc5-11ec-8182-fea14ba1eb2b'
+pnconfig.publish_key = 'pub-c-c4594a32-80ec-4318-812c-62ec67e14436'
 pnconfig.uuid = '2ca147c6-d6e1-4d2c-9c38-a34d6938efd6'
 pubnub = PubNub(pnconfig)
 
-heating_on = False  # heating is off by default
 
+# heating_on = False  # heating is off by default
 
 # returns both humidity, temperature
 def get_data_reading():
@@ -38,19 +40,33 @@ def main():
         humidity, temperature = Adafruit_DHT.read(DHT_SENSOR, GPIO_PIN)
         if humidity is not None and temperature is not None:
             print('Temp={0:0.1f}*C  Humidity={1:0.1f}%'.format(temperature, humidity))
-            # publish(my_channel, {"temperature ": '{0:0.1f}*C'.format(temperature)})
-            heating(25, temperature)
+            publish(my_channel, {"Bedroom 1:\n"
+                                 "temperature ": '{0:0.1f}*C'.format(temperature)})
+            # heating(25, temperature)
+            if temperature < 25:
+                led.on()
+            else:
+                led.off()
+
         else:
             print('Failed Reading - Trying Again')
             # publish(my_channel, {"Failed Reading": "Trying Again"})
         time.sleep(5)
 
 
-def heating(temperature_set, current_temperature):
-    if heating_on and current_temperature < temperature_set:
-        led.on()
-    else:
-        led.off()
+def turn_heating_on():
+    led.on()
+
+
+def turn_heating_off():
+    led.off()
+
+
+# def heating(temperature_set, current_temperature):
+#     if heating_on and current_temperature < temperature_set:
+#         led.on()
+#     else:
+#         led.off()
 
 
 def publish(channel, msg):
