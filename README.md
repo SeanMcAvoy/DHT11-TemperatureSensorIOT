@@ -1,7 +1,7 @@
 # DHT11-TemperatureSensor
 
 ## Install the DHT python library - To be Able to use the library
-sudo pip3 install Adafruit_DHT
+`sudo pip3 install Adafruit_DHT`
 
 ### Wire Connections
 

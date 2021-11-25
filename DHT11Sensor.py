@@ -43,10 +43,10 @@ def main():
             publish(my_channel, {"Bedroom 1:\n"
                                  "temperature ": '{0:0.1f}*C'.format(temperature)})
             # heating(25, temperature)
-            if temperature < 25:
-                led.on()
-            else:
-                led.off()
+            # if temperature < 25:
+            #     led.on()
+            # else:
+            #     led.off()
 
         else:
             print('Failed Reading - Trying Again')
