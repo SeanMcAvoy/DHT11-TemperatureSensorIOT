@@ -73,4 +73,3 @@ MIT License - Free for academic use
 **Developed by:** [Sean McAvoy]  
 **Course:** IoT Systems - [DkIT]  
 **Year:** 2023  
-```
